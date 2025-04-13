@@ -1,12 +1,16 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
+import React, { useState } from "react";
+import Navbar from "../components/Navbar";
+import Hero from "../components/Hero";
 
 const Home = () => {
+
+    const [active, setActive] = useState("getir");
   return (
     <div>
-        <Navbar/>
+      <Navbar active={active} setActive={setActive} />
+      <Hero active={active} />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

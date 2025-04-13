@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaGlobe, FaUser, FaUserPlus } from "react-icons/fa";
 
-const Navbar = () => {
+const Navbar = ({ active, setActive }) => {
   const menuItems = [
     "getir",
     "getiryemek",
@@ -10,10 +10,11 @@ const Navbar = () => {
     "getirçarsı",
   ];
 
-  const [active, setActive] = useState("getir");
+ 
 
   return (
-    <div className="w-full bg-[#4c3398] text-[#dad9fd] px-6 md:px-24 py-2 flex justify-between items-center text-sm md:text-base font-medium font-['Cocon-Regular'] top-0 left-0 right-0 z-50">
+    <div className="w-full bg-[#4c3398] text-[#dad9fd] py-2 text-sm md:text-base font-medium font-['Cocon-Regular'] z-50">
+        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
       {/* left */}
       <div className="flex overflow-x-auto whitespace-nowrap gap-3 scrollbar-hide ">
         {menuItems.map((item) => (
@@ -32,7 +33,7 @@ const Navbar = () => {
         ))}
       </div>
       {/* right */}
-      <div className="hidden sm:flex gap-6 items-center text-sm font-sans">
+      <div className="hidden sm:flex gap-10 items-center text-sm font-sans">
         <div className="flex items-center gap-1 cursor-pointer">
           <FaGlobe size={16} />
           <span className="hidden lg:inline">Türkçe (TR)</span>
@@ -45,6 +46,7 @@ const Navbar = () => {
           <FaUserPlus size={16} />
           <span className="hidden lg:inline">Kayıt Ol</span>
         </div>
+      </div>
       </div>
     </div>
   );
