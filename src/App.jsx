@@ -1,9 +1,10 @@
 import "./App.css";
+import Home from "./pages/Home";
 
 function App() {
   return (
-    <div className="font-['Cocon-Regular'] text-4xl font-bold text-green-500">
-      Getir Clone
+    <div>
+      <Home />
     </div>
   );
 }
