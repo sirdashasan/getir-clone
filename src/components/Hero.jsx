@@ -1,14 +1,14 @@
 import React from "react";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import LoginBox from "./LoginBox";
-import getirLogo from "../assets/images/hero-logo.svg";
+import getirLogo from "../assets/images/hero-images/hero-logo.svg";
 
 const Hero = ({ active }) => {
   return (
     <section className="w-full">
       {/* Desktop view */}
       <div className="hidden md:flex bg-[#5d3ebc] py-24">
-      <div className="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
+        <div className="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
           {/* Left: Logo  */}
           <div className="flex flex-col gap-8 justify-center text-white w-1/2">
             <img src={getirLogo} alt="Getir Logo" className="w-48" />

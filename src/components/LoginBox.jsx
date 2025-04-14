@@ -1,5 +1,5 @@
 import React from "react";
-import turkiyeFlag from "../assets/images/turkiye-flag.svg";
+import turkiyeFlag from "../assets/images/hero-images/turkiye-flag.svg";
 
 const LoginBox = () => {
   return (
