@@ -6,7 +6,7 @@ import phonesImage from "../assets/images/download-section-images/download-image
 
 const DownloadSection = () => {
   return (
-    <section className="bg-[#f8f8f8] py-12 md:py-6 xl:px-38">
+    <section className="bg-[#f8f8f8] py-6 md:py-6 xl:px-36">
       <div className="max-w-7xl mx-auto bg-[#5d3ebc] text-white xl:rounded-lg overflow-hidden relative flex flex-col md:flex-row md:items-center md:justify-between px-6 md:px-12 py-10 md:py-20">
         {/* Text & Buttons */}
         <div className="z-10 max-w-md flex flex-col gap-6">
@@ -19,23 +19,23 @@ const DownloadSection = () => {
             <img
               src={appStore}
               alt="App Store"
-              className="w-36 cursor-pointer"
+              className="w-40 cursor-pointer"
             />
             <img
               src={googlePlay}
               alt="Google Play"
-              className="w-36 cursor-pointer"
+              className="w-40 cursor-pointer"
             />
             <img
               src={huaweiApp}
               alt="App Gallery"
-              className="w-36 cursor-pointer"
+              className="w-40 cursor-pointer"
             />
           </div>
         </div>
 
         {/* Desktop */}
-        <div className="hidden xl:block absolute right-0 bottom-0 w-1/2">
+        <div className="hidden 2xl:block absolute right-0 bottom-0 w-1/2">
           <img src={phonesImage} alt="Phones" className="h-full object-cover" />
         </div>
       </div>
