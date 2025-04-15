@@ -24,7 +24,7 @@ export const categories = [
   { title: "Fırından", image: firindanImg, slug: "firindan" },
   { title: "Dondurma", image: dondurmaImg, slug: "dondurma" },
   { title: "Temel Gıda", image: temelGidaImg, slug: "temel-gida" },
-  { title: "Kahvaltılık", image: kahvaltilikImg, slug: "kahvaltilik" },
+  // { title: "Kahvaltılık", image: kahvaltilikImg, slug: "kahvaltilik" },
   { title: "Yiyecek", image: yiyecekImg, slug: "yiyecek" },
   {
     title: "Et, Tavuk & Balık",

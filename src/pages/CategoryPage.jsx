@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { subcategories } from "../constants/subcategories";
 import { categories } from "../constants/categories";
 import GetirBanner from "../components/GetirBanner";
@@ -23,18 +23,26 @@ const CategoryPage = () => {
         {/* Mobile view */}
         <div className="block md:hidden">
           {/* Categories */}
-          <div className="flex overflow-x-auto mb-2 bg-[#7849f7] py-2 ">
+          <div className="flex overflow-x-auto mb-2 bg-[#7849f7] py-2">
             {categories.map((cat) => (
-              <button
-                key={cat.slug}
-                className={`text-xs rounded-full px-3 py-1 whitespace-nowrap font-medium transition-colors ${
-                  cat.slug === slug
-                    ? "bg-white text-[#5d3ebc]"
-                    : "text-white hover:bg-white hover:text-[#5d3ebc]"
-                }`}
-              >
-                {cat.title}
-              </button>
+              <div key={cat.slug} className="relative px-3">
+                <Link to={`/kategori/${cat.slug}`}>
+                  <button
+                    className={`text-xs whitespace-nowrap font-medium transition-colors ${
+                      cat.slug === slug
+                        ? "text-white"
+                        : "text-white hover:bg-white hover:text-[#5d3ebc]"
+                    }`}
+                  >
+                    {cat.title}
+                  </button>
+                </Link>
+
+                {/* Yellow underline */}
+                {cat.slug === slug && (
+                  <span className="absolute  bottom-[-8px] left-0 right-0 h-[2px] bg-yellow-400 rounded-full"></span>
+                )}
+              </div>
             ))}
           </div>
 
