@@ -4,6 +4,9 @@ import { subcategories } from "../constants/subcategories";
 import { categories } from "../constants/categories";
 import GetirBanner from "../components/GetirBanner";
 import DeliveryAddress from "../components/DeliveryAddress";
+import { products } from "../constants/products";
+import ProductCard from "../components/ProductCard";
+import { FiChevronDown, FiChevronUp, FiChevronRight } from "react-icons/fi";
 
 const CategoryPage = () => {
   const { slug } = useParams();
@@ -15,17 +18,25 @@ const CategoryPage = () => {
 
   const [selectedSub, setSelectedSub] = useState(subCats[0] || null);
 
+  const [activeCategory, setActiveCategory] = useState(slug);
+
+  const filteredProducts = products.filter(
+    (product) =>
+      product.category === slug &&
+      (!selectedSub || product.subcategory === selectedSub)
+  );
+
   return (
     <>
       <GetirBanner />
       <DeliveryAddress />
-      <section className=" md:px-36 md:pt-6">
+      <section className=" md:px-36 md:pt-6 bg-[#f8f8f8]">
         {/* Mobile view */}
-        <div className="block md:hidden">
+        <div className="block md:hidden ">
           {/* Categories */}
           <div className="flex overflow-x-auto mb-2 bg-[#7849f7] py-2">
             {categories.map((cat) => (
-              <div key={cat.slug} className="relative px-3">
+              <div key={cat.slug} className="relative px-3 ">
                 <Link to={`/kategori/${cat.slug}`}>
                   <button
                     className={`text-xs whitespace-nowrap font-medium transition-colors ${
@@ -64,21 +75,19 @@ const CategoryPage = () => {
           </div>
 
           {/* Placeholder products */}
+
+          {/* Category > Subcategory */}
           <div className="text-sm text-gray-700 font-medium mb-2 px-2 whitespace-nowrap overflow-x-auto">
             <span>{currentCategory?.title}</span>
-            {selectedSub && <span className="ml-1">{`> ${selectedSub}`}</span>}
+            <span className="ml-1 inline-flex items-center gap-1">
+              <FiChevronRight className="text-xs " />
+              {selectedSub}
+            </span>
           </div>
+
           <div className="grid grid-cols-3 gap-4 px-2">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <div
-                key={i}
-                className="border rounded-lg p-2 shadow-sm text-center"
-              >
-                <div className="bg-gray-100 h-24 mb-2"></div>
-                <p className="text-sm font-medium">Ürün Adı</p>
-                <p className="text-xs text-gray-500">2 Ürün</p>
-                <p className="text-[#5d3ebc] font-semibold mt-1">₺50,00</p>
-              </div>
+            {filteredProducts.map((product) => (
+              <ProductCard key={product.id} product={product} />
             ))}
           </div>
         </div>
@@ -86,62 +95,103 @@ const CategoryPage = () => {
         {/* Desktop view */}
         <div className="hidden md:flex gap-6">
           {/* Sidebar */}
-          <aside className="w-1/5">
-            <h3 className="text-sm font-bold mb-4">Kategoriler</h3>
-            <div className="space-y-4">
-              {categories.map((cat, index) => {
-                const isActive = cat.slug === slug;
-                const subs = subcategories[cat.slug] || [];
+          <div className="w-1/5">
+            <h3 className="text-sm font-semibold mb-2 text-gray-700">Kategoriler</h3>
+            <aside className="bg-white rounded-md">
+              <div className="space-y-2">
+                {categories.map((cat) => {
+                  const isActive = activeCategory === cat.slug;
+                  const subs = subcategories[cat.slug] || [];
 
-                return (
-                  <div key={index}>
-                    <div
-                      className={`font-semibold text-sm cursor-pointer ${
-                        isActive ? "text-[#5d3ebc]" : "text-gray-800"
-                      }`}
-                    >
-                      {cat.title}
+                  return (
+                    <div key={cat.slug} className="rounded-lg overflow-hidden">
+                      <div
+                        onClick={() =>
+                          setActiveCategory((prev) =>
+                            prev === cat.slug ? null : cat.slug
+                          )
+                        }
+                        className={`flex items-center justify-between px-3 py-2 font-semibold text-sm cursor-pointer ${
+                          isActive
+                            ? "bg-[#f3f0fe] text-[#5d3ebc]"
+                            : "text-gray-800"
+                        }`}
+                      >
+                        <div className="flex items-center gap-2">
+                          {cat.image && (
+                            <img
+                              src={cat.image}
+                              alt={cat.title}
+                              className="w-6 h-6 object-cover rounded-sm"
+                            />
+                          )}
+                          {cat.title}
+                        </div>
+                        <span className="text-sm">
+                          {isActive ? <FiChevronUp /> : <FiChevronDown />}
+                        </span>
+                      </div>
+
+                      {/* Subcategories */}
+                      {isActive && (
+                        <ul className="mt-1 pl-10 space-y-1 text-sm text-gray-700">
+                          {subs.map((sub, i) => (
+                            <li
+                              key={i}
+                              onClick={() => setSelectedSub(sub)}
+                              className={`flex justify-between items-center pr-2 cursor-pointer hover:text-[#5d3ebc] transition-colors ${
+                                selectedSub === sub
+                                  ? "font-medium text-[#5d3ebc]"
+                                  : ""
+                              }`}
+                            >
+                              {sub}
+                              {selectedSub === sub && (
+                                <span className="text-xs px-1">
+                                  <FiChevronRight />
+                                </span>
+                              )}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
                     </div>
-
-                    {/* Only active category subcategories should be open */}
-                    {isActive && (
-                      <ul className="mt-2 pl-2 space-y-1 text-sm text-gray-700">
-                        {subs.map((sub, i) => (
-                          <li
-                            key={i}
-                            className="cursor-pointer hover:text-[#5d3ebc] transition-colors"
-                          >
-                            {sub}
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </aside>
-
-          {/* Products */}
-          <main className="w-3/5 grid grid-cols-3 gap-4">
-            {Array.from({ length: 9 }).map((_, i) => (
-              <div
-                key={i}
-                className="border rounded-lg p-3 text-center shadow-sm"
-              >
-                <div className="bg-gray-100 h-32 mb-3"></div>
-                <p className="font-semibold text-sm">Ürün Adı</p>
-                <p className="text-xs text-gray-500">3 Ürün</p>
-                <p className="text-[#5d3ebc] mt-1 font-semibold">₺100,50</p>
+                  );
+                })}
               </div>
-            ))}
-          </main>
+            </aside>
+          </div>
 
-          {/* shopping cart */}
-          <aside className="w-1/5 bg-white border rounded-lg p-4 h-fit shadow-sm">
-            <h3 className="font-bold text-sm mb-2">Sepetin</h3>
-            <p className="text-xs text-gray-500">Sepetin şu an boş</p>
-          </aside>
+          {/* Right section: Category info + Products + Cart */}
+          <div className="w-4/5 flex flex-col gap-2">
+            {/* Category > Subcategory title */}
+            <div className="text-sm text-gray-700 font-semibold whitespace-nowrap overflow-x-auto">
+              <span>{currentCategory?.title}</span>
+              {selectedSub && (
+                <span className="ml-1 inline-flex items-center gap-1">
+                  <FiChevronRight className="text-xs" />
+                  {selectedSub}
+                </span>
+              )}
+            </div>
+
+            <div className="flex gap-6">
+              {/* Product List */}
+              <main className="w-4/5 bg-white rounded-md">
+                <div className="grid grid-cols-4 gap-4 p-4">
+                  {filteredProducts.map((product) => (
+                    <ProductCard key={product.id} product={product} />
+                  ))}
+                </div>
+              </main>
+
+              {/* Cart */}
+              <aside className="w-1/5 bg-white border rounded-lg p-4 h-fit shadow-sm">
+                <h3 className="font-bold text-sm mb-2">Sepetin</h3>
+                <p className="text-xs text-gray-500">Sepetin şu an boş</p>
+              </aside>
+            </div>
+          </div>
         </div>
       </section>
     </>

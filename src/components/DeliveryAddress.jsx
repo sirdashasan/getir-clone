@@ -1,5 +1,6 @@
 import React from "react";
 import { FaMapMarkerAlt } from "react-icons/fa";
+import { FiChevronRight } from "react-icons/fi";
 
 const DeliveryAddress = () => {
   return (
@@ -8,7 +9,8 @@ const DeliveryAddress = () => {
         <FaMapMarkerAlt size={16} className="text-[#5d3ebc]" />
         <span className="text-gray-700">Teslimat Adresi Belirle</span>
       </div>
-      <span className="text-[#5d3ebc] text-lg">{`>`}</span>
+
+      <FiChevronRight className="text-[#5d3ebc] text-lg" />
     </div>
   );
 };
