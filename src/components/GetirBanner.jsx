@@ -2,7 +2,7 @@ import React from "react";
 
 const GetirBanner = () => {
   return (
-    <div className="bg-[#5d3ebc] py-4 text-center md:text-start md:px-36">
+    <div className="bg-[#5d3ebc] py-4 text-center md:text-start md:px-36 md:sticky md:top-[48px] md:z-40">
       <h1 className="text-[#ffd300] text-xl md:text-2xl font-['Cocon-Regular'] font-medium">
         getir
       </h1>

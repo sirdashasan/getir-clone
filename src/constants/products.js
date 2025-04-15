@@ -54,4 +54,70 @@ export const products = [
     image:
       "https://cdn-image.getir.com/market/product/9ff2a1ac-fc28-4368-bd87-f945b4727af3.png",
   },
+  {
+    id: 6,
+    category: "atistirmalik",
+    subcategory: "Cips",
+    name: "Cheetos Fırından Peynir Mısır Çerezi Aile Boy",
+    price: 56.97,
+    oldPrice: 51.5,
+    quantity: "3x40g",
+    image:
+      "https://cdn-image.getir.com/market/product/9ff2a1ac-fc28-4368-bd87-f945b4727af3.png",
+  },
+  {
+    id: 7,
+    category: "atistirmalik",
+    subcategory: "Cips",
+    name: "Cheetos Fırından Peynir Mısır Çerezi Aile Boy",
+    price: 56.97,
+    oldPrice: 51.5,
+    quantity: "3x40g",
+    image:
+      "https://cdn-image.getir.com/market/product/9ff2a1ac-fc28-4368-bd87-f945b4727af3.png",
+  },
+  {
+    id: 8,
+    category: "atistirmalik",
+    subcategory: "Cips",
+    name: "Cheetos Fırından Peynir Mısır Çerezi Aile Boy",
+    price: 56.97,
+    oldPrice: 51.5,
+    quantity: "3x40g",
+    image:
+      "https://cdn-image.getir.com/market/product/9ff2a1ac-fc28-4368-bd87-f945b4727af3.png",
+  },
+  {
+    id: 9,
+    category: "atistirmalik",
+    subcategory: "Cips",
+    name: "Cheetos Fırından Peynir Mısır Çerezi Aile Boy",
+    price: 56.97,
+    oldPrice: 51.5,
+    quantity: "3x40g",
+    image:
+      "https://cdn-image.getir.com/market/product/9ff2a1ac-fc28-4368-bd87-f945b4727af3.png",
+  },
+  {
+    id: 10,
+    category: "atistirmalik",
+    subcategory: "Cips",
+    name: "Cheetos Fırından Peynir Mısır Çerezi Aile Boy",
+    price: 56.97,
+    oldPrice: 51.5,
+    quantity: "3x40g",
+    image:
+      "https://cdn-image.getir.com/market/product/9ff2a1ac-fc28-4368-bd87-f945b4727af3.png",
+  },
+  {
+    id: 11,
+    category: "atistirmalik",
+    subcategory: "Cips",
+    name: "Cheetos Fırından Peynir Mısır Çerezi Aile Boy",
+    price: 56.97,
+    oldPrice: 51.5,
+    quantity: "3x40g",
+    image:
+      "https://cdn-image.getir.com/market/product/9ff2a1ac-fc28-4368-bd87-f945b4727af3.png",
+  },
 ];

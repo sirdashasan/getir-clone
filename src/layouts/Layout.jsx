@@ -8,7 +8,9 @@ const Layout = ({ children }) => {
   return (
     <>
       <Navbar active={active} setActive={setActive} />
-      {React.cloneElement(children, { active, setActive })}
+      <div className="md:pt-[48px]">
+        {React.cloneElement(children, { active, setActive })}
+      </div>
       <Footer />
     </>
   );
