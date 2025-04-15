@@ -7,6 +7,7 @@ import DeliveryAddress from "../components/DeliveryAddress";
 import { products } from "../constants/products";
 import ProductCard from "../components/ProductCard";
 import { FiChevronDown, FiChevronUp, FiChevronRight } from "react-icons/fi";
+import basketIcon from "../assets/images/category-page-images/basket.svg";
 
 const CategoryPage = () => {
   const { slug } = useParams();
@@ -30,7 +31,7 @@ const CategoryPage = () => {
     <>
       <GetirBanner />
       <DeliveryAddress />
-      <section className=" md:px-36 md:pt-6 bg-[#f8f8f8]">
+      <section className=" md:px-36 md:pt-6 md:bg-[#f8f8f8]">
         {/* Mobile view */}
         <div className="block md:hidden ">
           {/* Categories */}
@@ -96,7 +97,9 @@ const CategoryPage = () => {
         <div className="hidden md:flex gap-6">
           {/* Sidebar */}
           <div className="w-1/5">
-            <h3 className="text-sm font-semibold mb-2 text-gray-700">Kategoriler</h3>
+            <h3 className="text-sm font-semibold mb-2 text-gray-700">
+              Kategoriler
+            </h3>
             <aside className="bg-white rounded-md">
               <div className="space-y-2">
                 {categories.map((cat) => {
@@ -164,32 +167,52 @@ const CategoryPage = () => {
 
           {/* Right section: Category info + Products + Cart */}
           <div className="w-4/5 flex flex-col gap-2">
-            {/* Category > Subcategory title */}
-            <div className="text-sm text-gray-700 font-semibold whitespace-nowrap overflow-x-auto">
-              <span>{currentCategory?.title}</span>
-              {selectedSub && (
-                <span className="ml-1 inline-flex items-center gap-1">
-                  <FiChevronRight className="text-xs" />
-                  {selectedSub}
-                </span>
-              )}
+            {/* Üst başlıklar */}
+            <div className="flex justify-between items-center">
+              {/* Category > Subcategory title */}
+              <div className="text-sm text-gray-700 font-semibold whitespace-nowrap overflow-x-auto">
+                <span>{currentCategory?.title}</span>
+                {selectedSub && (
+                  <span className="ml-1 inline-flex items-center gap-1">
+                    <FiChevronRight className="text-xs" />
+                    {selectedSub}
+                  </span>
+                )}
+              </div>
+
+              {/* Basket title */}
+              <div className="w-1/3 hidden xl:flex justify-start pl-2">
+                <h3 className="font-bold text-sm text-gray-700">Sepetim</h3>
+              </div>
             </div>
 
+            {/* Products and basket */}
             <div className="flex gap-6">
               {/* Product List */}
-              <main className="w-4/5 bg-white rounded-md">
-                <div className="grid grid-cols-4 gap-4 p-4">
+              <main className="w-2/3 bg-white rounded-md">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
                   {filteredProducts.map((product) => (
                     <ProductCard key={product.id} product={product} />
                   ))}
                 </div>
               </main>
 
-              {/* Cart */}
-              <aside className="w-1/5 bg-white border rounded-lg p-4 h-fit shadow-sm">
-                <h3 className="font-bold text-sm mb-2">Sepetin</h3>
-                <p className="text-xs text-gray-500">Sepetin şu an boş</p>
-              </aside>
+              {/* Basket box */}
+              <div className="w-1/3 hidden xl:block">
+                <aside className="bg-white border-2 border-yellow-400 rounded-lg px-4 py-20 h-fit shadow-sm flex flex-col items-center text-center">
+                  <img
+                    src={basketIcon}
+                    alt="Basket Icon"
+                    className="h-28 mb-4 opacity-70"
+                  />
+                  <h3 className="font-semibold text-[#5d3ebc] text-sm mb-1">
+                    Sepetin şu an boş
+                  </h3>
+                  <p className="text-sm font-medium text-gray-500">
+                    Sipariş vermek için sepetine ürün ekle
+                  </p>
+                </aside>
+              </div>
             </div>
           </div>
         </div>

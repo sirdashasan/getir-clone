@@ -32,4 +32,26 @@ export const products = [
     image:
       "https://cdn-image.getir.com/market/product/3fce5b10-10aa-4ca4-ae14-89f9e4c0281d.jpg",
   },
+  {
+    id: 4,
+    category: "atistirmalik",
+    subcategory: "Cips",
+    name: "Pin & Gong İkilisi",
+    price: 56.49,
+    oldPrice: 50.5,
+    quantity: "2 Ürün",
+    image:
+      "https://cdn-image.getir.com/market/product/7858ba71-e628-44b5-b870-bef46706e59b.png",
+  },
+  {
+    id: 5,
+    category: "atistirmalik",
+    subcategory: "Cips",
+    name: "Cheetos Fırından Peynir Mısır Çerezi Aile Boy",
+    price: 56.97,
+    oldPrice: 51.5,
+    quantity: "3x40g",
+    image:
+      "https://cdn-image.getir.com/market/product/9ff2a1ac-fc28-4368-bd87-f945b4727af3.png",
+  },
 ];
