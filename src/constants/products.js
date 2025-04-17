@@ -1,6 +1,7 @@
 export const products = [
   {
     id: 1,
+    slug: "doritos-ruffles-degis-tokus",
     category: "atistirmalik",
     subcategory: "Cips",
     name: "Doritos & Ruffles Değiş Tokuş",
@@ -12,6 +13,7 @@ export const products = [
   },
   {
     id: 2,
+    slug: "lays-ruffles-doritos-paketi",
     category: "atistirmalik",
     subcategory: "Cips",
     name: "Lay's Ruffles Doritos Paketi",
@@ -23,6 +25,7 @@ export const products = [
   },
   {
     id: 3,
+    slug: "cerezza-uclusu",
     category: "atistirmalik",
     subcategory: "Cips",
     name: "Çerezza Üçlüsü",
@@ -34,6 +37,7 @@ export const products = [
   },
   {
     id: 4,
+    slug: "pin-gong-ikilisi",
     category: "atistirmalik",
     subcategory: "Cips",
     name: "Pin & Gong İkilisi",
@@ -45,6 +49,7 @@ export const products = [
   },
   {
     id: 5,
+    slug: "cheetos-firindan-peynir-misir-1",
     category: "atistirmalik",
     subcategory: "Cips",
     name: "Cheetos Fırından Peynir Mısır Çerezi Aile Boy",
@@ -56,17 +61,28 @@ export const products = [
   },
   {
     id: 6,
+    slug: "ruffles-originals-patates-cipsi-super-boy",
     category: "atistirmalik",
     subcategory: "Cips",
-    name: "Cheetos Fırından Peynir Mısır Çerezi Aile Boy",
-    price: 56.97,
+    name: "Ruffles Originals Patates Cipsi Süper Boy",
+    price: 46.99,
     oldPrice: 51.5,
-    quantity: "3x40g",
+    quantity: "107 g",
     image:
-      "https://cdn-image.getir.com/market/product/9ff2a1ac-fc28-4368-bd87-f945b4727af3.png",
+      "https://cdn-image.getir.com/market/product/b3a49501-8d15-4a95-a450-67edd9b7b1de.jpg",
+    details: [
+      "Ruffles Originals, atıştırmalık olarak tüketebileceğiniz bir patates cipsidir.",
+      "Her anın tadını çıkarırken enfes cips Ruffles Originals'ı tercih edebilirsiniz.",
+    ],
+    ingredients: "Patates, palm olein yağı, tuz.",
+    usage:
+      "Serin ve kuru ortamda muhafaza ediniz. Doğrudan güneş ışığına maruz bırakmayınız.",
+    additionalInfo:
+      "Ürünün menşeine, üretici/ithalatçı bilgilerine ve uyarılara ulaşabilirsiniz. Menşei: Türkiye. Gıda İşletmecisi / Üretici / İthalatçı / Dağıtıcı: Frito Lay Gıda San. ve Tic. A.Ş. İşletme Kayıt No: TR-33-K-000513",
   },
   {
     id: 7,
+    slug: "cheetos-firindan-peynir-misir-3",
     category: "atistirmalik",
     subcategory: "Cips",
     name: "Cheetos Fırından Peynir Mısır Çerezi Aile Boy",
@@ -78,6 +94,7 @@ export const products = [
   },
   {
     id: 8,
+    slug: "cheetos-firindan-peynir-misir-4",
     category: "atistirmalik",
     subcategory: "Cips",
     name: "Cheetos Fırından Peynir Mısır Çerezi Aile Boy",
@@ -89,6 +106,7 @@ export const products = [
   },
   {
     id: 9,
+    slug: "cheetos-firindan-peynir-misir-5",
     category: "atistirmalik",
     subcategory: "Cips",
     name: "Cheetos Fırından Peynir Mısır Çerezi Aile Boy",
@@ -100,6 +118,7 @@ export const products = [
   },
   {
     id: 10,
+    slug: "cheetos-firindan-peynir-misir-6",
     category: "atistirmalik",
     subcategory: "Cips",
     name: "Cheetos Fırından Peynir Mısır Çerezi Aile Boy",
@@ -111,6 +130,7 @@ export const products = [
   },
   {
     id: 11,
+    slug: "cheetos-firindan-peynir-misir-7",
     category: "atistirmalik",
     subcategory: "Cips",
     name: "Cheetos Fırından Peynir Mısır Çerezi Aile Boy",

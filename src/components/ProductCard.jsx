@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
   return (
@@ -11,11 +12,13 @@ const ProductCard = ({ product }) => {
         +
       </button>
 
+      <Link to={`/urun/${product.slug}`}>
       <img
         src={product.image}
         alt={product.name}
         className="h-24 mx-auto mb-2 object-contain"
       />
+      </Link>
 
       <div className="flex items-center justify-center gap-2 mt-1">
         <p className="text-gray-400 line-through text-sm">
