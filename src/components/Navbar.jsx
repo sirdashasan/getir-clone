@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaGlobe, FaUser, FaUserPlus } from "react-icons/fa";
-import LanguageModal from "./LanguageModal"; 
+import LanguageModal from "./LanguageModal";
+import { Link } from "react-router-dom";
 
 const Navbar = ({ active, setActive }) => {
   const [showLangModal, setShowLangModal] = useState(false);
@@ -8,9 +9,9 @@ const Navbar = ({ active, setActive }) => {
   const menuItems = [
     "getir",
     "getiryemek",
-    "getirbüyük",
+    "getirbuyuk",
     "getirsu",
-    "getirçarsı",
+    "getircarsi",
   ];
 
   return (
@@ -20,9 +21,9 @@ const Navbar = ({ active, setActive }) => {
           {/* left */}
           <div className="flex overflow-x-auto whitespace-nowrap gap-3 scrollbar-hide ">
             {menuItems.map((item) => (
-              <a
+              <Link
                 key={item}
-                href="#"
+                to={item === "getir" ? "/" : `/${item}`}
                 onClick={() => setActive(item)}
                 className={`px-3 py-1 rounded-md transition-colors shrink-0 ${
                   active === item
@@ -31,7 +32,7 @@ const Navbar = ({ active, setActive }) => {
                 }`}
               >
                 {item}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -57,7 +58,9 @@ const Navbar = ({ active, setActive }) => {
       </div>
 
       {/* Language Modal */}
-      {showLangModal && <LanguageModal onClose={() => setShowLangModal(false)} />}
+      {showLangModal && (
+        <LanguageModal onClose={() => setShowLangModal(false)} />
+      )}
     </>
   );
 };
