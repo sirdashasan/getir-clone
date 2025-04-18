@@ -2,11 +2,15 @@ import React, { useState } from "react";
 import { FaGlobe, FaUser, FaUserPlus } from "react-icons/fa";
 import LanguageModal from "./LanguageModal";
 import { Link } from "react-router-dom";
+import { useLanguage } from "../contexts/LanguageContext";
+import locales from "../locales/locales";
 
 const Navbar = ({ active, setActive }) => {
   const [showLangModal, setShowLangModal] = useState(false);
 
-  const menuItems = [
+  const { language } = useLanguage();
+
+  const menuKeys = [
     "getir",
     "getiryemek",
     "getirbuyuk",
@@ -20,18 +24,18 @@ const Navbar = ({ active, setActive }) => {
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
           {/* left */}
           <div className="flex overflow-x-auto whitespace-nowrap gap-3 scrollbar-hide ">
-            {menuItems.map((item) => (
+            {menuKeys.map((key) => (
               <Link
-                key={item}
-                to={item === "getir" ? "/" : `/${item}`}
-                onClick={() => setActive(item)}
+                key={key}
+                to={key === "getir" ? "/" : `/${key}`}
+                onClick={() => setActive(key)}
                 className={`px-3 py-1 rounded-md transition-colors shrink-0 ${
-                  active === item
+                  active === key
                     ? "bg-[#5d3ebc] text-[#ffd300]"
                     : "hover:bg-[#5d3ebc]"
                 }`}
               >
-                {item}
+                {locales[language].menu[key]}
               </Link>
             ))}
           </div>
@@ -43,15 +47,22 @@ const Navbar = ({ active, setActive }) => {
               onClick={() => setShowLangModal(true)}
             >
               <FaGlobe size={16} />
-              <span className="hidden lg:inline">Türkçe (TR)</span>
+              <span className="hidden lg:inline">
+                {" "}
+                {locales[language]["language-text"]}
+              </span>
             </div>
             <div className="flex items-center gap-1 cursor-pointer">
               <FaUser size={16} />
-              <span className="hidden lg:inline">Giriş yap</span>
+              <span className="hidden lg:inline">
+                {locales[language]["login"]}
+              </span>
             </div>
             <div className="flex items-center gap-1 cursor-pointer">
               <FaUserPlus size={16} />
-              <span className="hidden lg:inline">Kayıt Ol</span>
+              <span className="hidden lg:inline">
+                {locales[language]["sign-up"]}
+              </span>
             </div>
           </div>
         </div>

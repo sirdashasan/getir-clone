@@ -11,8 +11,11 @@ import SubCategoryBar from "../components/SubCategoryBar";
 import ProductCard from "../components/ProductCard";
 import BasketBox from "../components/BasketBox";
 import { FiChevronDown, FiChevronUp, FiChevronRight } from "react-icons/fi";
+import { useLanguage } from "../contexts/LanguageContext";
+import locales from "../locales/locales";
 
 const CategoryPage = () => {
+  const { language } = useLanguage();
   const { slug } = useParams();
   const subCats = subcategories[slug] || [];
   const currentCategory = categories.find((cat) => cat.slug === slug);
@@ -70,7 +73,7 @@ const CategoryPage = () => {
           {/* Sidebar */}
           <div className="w-1/5 h-[calc(100vh-150px)] overflow-y-auto pr-2">
             <h3 className="text-sm font-semibold mb-2 text-gray-700">
-              Kategoriler
+            {locales[language]["categories-title"]}
             </h3>
             <aside className="bg-white rounded-md">
               <div className="space-y-2">

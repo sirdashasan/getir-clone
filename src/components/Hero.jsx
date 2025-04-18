@@ -2,8 +2,11 @@ import React from "react";
 import LoginBox from "./LoginBox";
 import getirLogo from "../assets/images/hero-images/hero-logo.svg";
 import DeliveryAddress from "./DeliveryAddress";
+import { useLanguage } from "../contexts/LanguageContext";
+import locales from "../locales/locales";
 
 const Hero = ({ active }) => {
+  const { language } = useLanguage();
   return (
     <section className="w-full">
       {/* Desktop view */}
@@ -12,7 +15,10 @@ const Hero = ({ active }) => {
           {/* Left: Logo  */}
           <div className="flex flex-col gap-8 justify-center text-white w-1/2">
             <img src={getirLogo} alt="Getir Logo" className="w-48" />
-            <h1 className="text-4xl font-semibold">Dakikalar içinde kapında</h1>
+            <h1 className="text-4xl font-semibold">
+              {" "}
+              {locales[language]["hero-text"]}
+            </h1>
           </div>
 
           {/* Right: Login */}

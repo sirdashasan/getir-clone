@@ -1,18 +1,34 @@
 import React from "react";
-import appStore from "../assets/images/download-section-images/app-store.svg";
-import googlePlay from "../assets/images/download-section-images/google-play.svg";
-import huaweiApp from "../assets/images/download-section-images/app-gallery.svg";
-import phonesImage from "../assets/images/download-section-images/download-image.png";
+import appStoreTr from "../assets/images/download-section-images/app-store.svg";
+import appStoreEn from "../assets/images/download-section-images/app-store-en.svg";
+import googlePlayTr from "../assets/images/download-section-images/google-play.svg";
+import googlePlayEn from "../assets/images/download-section-images/google-play-en.svg";
+import huaweiAppTr from "../assets/images/download-section-images/app-gallery.svg";
+import huaweiAppEn from "../assets/images/download-section-images/app-gallery-en.svg";
+import phonesImageTr from "../assets/images/download-section-images/download-image.png";
+import phonesImageEn from "../assets/images/download-section-images/download-image-en.png";
+
+import { useLanguage } from "../contexts/LanguageContext";
+import locales from "../locales/locales";
 
 const DownloadSection = () => {
+  const { language } = useLanguage();
+
+  const phonesImage = language === "en" ? phonesImageEn : phonesImageTr;
+  const appStore = language === "en" ? appStoreEn : appStoreTr;
+  const googlePlay = language === "en" ? googlePlayEn : googlePlayTr;
+  const huaweiApp = language === "en" ? huaweiAppEn : huaweiAppTr;
+
   return (
     <section className="bg-[#f8f8f8] py-6 md:py-6 xl:px-36">
       <div className="max-w-7xl mx-auto bg-[#5d3ebc] text-white xl:rounded-lg overflow-hidden relative flex flex-col md:flex-row md:items-center md:justify-between px-6 md:px-12 py-10 md:py-20">
         {/* Text & Buttons */}
         <div className="z-10 max-w-md flex flex-col gap-6">
-          <h2 className="text-2xl md:text-3xl font-bold">Getir'i indir!</h2>
+          <h2 className="text-2xl md:text-3xl font-bold">
+            {locales[language]["download-getir"]}
+          </h2>
           <p className="text-base leading-relaxed font-semibold">
-            İstediğiniz ürünleri dakikalar içinde kapınıza getirelim.
+            {locales[language]["download-desc"]}
           </p>
 
           <div className="flex flex-col sm:flex-row md:flex-row gap-3">

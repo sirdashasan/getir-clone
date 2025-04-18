@@ -1,8 +1,15 @@
 import React, { useState } from "react";
 import { IoClose } from "react-icons/io5";
+import { useLanguage } from "../contexts/LanguageContext";
 
 const LanguageModal = ({ onClose }) => {
-  const [selectedLanguage, setSelectedLanguage] = useState("tr");
+  const { language, toggleLanguage } = useLanguage();
+  const [selectedLanguage, setSelectedLanguage] = useState(language);
+
+  const handleUpdate = () => {
+    toggleLanguage(selectedLanguage);
+    onClose();
+  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
@@ -62,13 +69,14 @@ const LanguageModal = ({ onClose }) => {
 
         {/* Update Button */}
         <button
-          disabled={selectedLanguage === "tr"}
+          onClick={handleUpdate}
+          disabled={selectedLanguage === language}
           className={`mt-6 w-full py-2 rounded-lg font-medium transition 
-            ${
-              selectedLanguage === "tr"
-                ? "bg-gray-300 text-white cursor-not-allowed"
-                : "bg-[#5d3ebc] text-white hover:bg-[#4a30a3]"
-            }`}
+      ${
+        selectedLanguage === language
+          ? "bg-gray-300 text-white cursor-not-allowed"
+          : "bg-[#5d3ebc] text-white hover:bg-[#4a30a3]"
+      }`}
         >
           Güncelle
         </button>

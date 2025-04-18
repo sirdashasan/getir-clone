@@ -1,13 +1,25 @@
 import React from "react";
 import { FaFacebookF, FaTwitter, FaInstagram, FaGlobe } from "react-icons/fa";
-import appStore from "../assets/images/download-section-images/app-store.svg";
-import googlePlay from "../assets/images/download-section-images/google-play.svg";
-import huaweiApp from "../assets/images/download-section-images/app-gallery.svg";
+import appStoreTr from "../assets/images/download-section-images/app-store.svg";
+import appStoreEn from "../assets/images/download-section-images/app-store-en.svg";
+import googlePlayTr from "../assets/images/download-section-images/google-play.svg";
+import googlePlayEn from "../assets/images/download-section-images/google-play-en.svg";
+import huaweiAppTr from "../assets/images/download-section-images/app-gallery.svg";
+import huaweiAppEn from "../assets/images/download-section-images/app-gallery-en.svg";
+import { useLanguage } from "../contexts/LanguageContext";
+import locales from "../locales/locales";
 
 const Footer = () => {
+  const { language } = useLanguage();
+  const t = locales[language].footer;
+
+  const appStore = language === "en" ? appStoreEn : appStoreTr;
+  const googlePlay = language === "en" ? googlePlayEn : googlePlayTr;
+  const huaweiApp = language === "en" ? huaweiAppEn : huaweiAppTr;
+
   const footerLinks = [
     {
-      title: "Getir'i indir!",
+      title: t.column1.title,
       images: [
         { src: appStore, alt: "App Store", href: "#" },
         { src: googlePlay, alt: "Google Play", href: "#" },
@@ -15,36 +27,16 @@ const Footer = () => {
       ],
     },
     {
-      title: "Getir'i keşfet",
-      links: [
-        { text: "Hakkımızda", href: "#" },
-        { text: "Kariyer", href: "#" },
-        { text: "Teknoloji Kariyerleri", href: "#" },
-        { text: "İletişim", href: "#" },
-        { text: "Sosyal Sorumluluk Projeleri", href: "#" },
-        { text: "Basın Bültenleri", href: "#" },
-      ],
+      title: t.column2.title,
+      links: t.column2.links.map((text) => ({ text, href: "#" })),
     },
     {
-      title: "Yardıma mı ihtiyacın var?",
-      links: [
-        { text: "Sıkça Sorulan Sorular", href: "#" },
-        { text: "Kişisel Verilerin Korunması", href: "#" },
-        { text: "Gizlilik Politikası", href: "#" },
-        { text: "Kullanım Koşulları", href: "#" },
-        { text: "Çerez Politikası", href: "#" },
-        { text: "İşlem Rehberi", href: "#" },
-      ],
+      title: t.column3.title,
+      links: t.column3.links.map((text) => ({ text, href: "#" })),
     },
     {
-      title: "İş Ortağımız Ol",
-      links: [
-        { text: "Bayimiz Olun", href: "#" },
-        { text: "Deponu Kirala", href: "#" },
-        { text: "GetirYemek Restoranı Ol", href: "#" },
-        { text: "GetirÇarşı İşletmesi Ol", href: "#" },
-        { text: "Zincir Restoranlar", href: "#" },
-      ],
+      title: t.column4.title,
+      links: t.column4.links.map((text) => ({ text, href: "#" })),
     },
   ];
 
@@ -91,7 +83,7 @@ const Footer = () => {
           <div className="flex gap-2">
             <span>•</span>
             <a href="#" className="text-[#5d3ebc]">
-              Bilgi Toplumu Hizmetleri
+              {locales[language]["information-society-services"]}
             </a>
           </div>
         </div>
