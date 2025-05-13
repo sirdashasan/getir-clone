@@ -2,6 +2,16 @@
 
 This is the **React-based frontend** of the Getir Clone project. It replicates the UI/UX of the original Getir app and connects to a Spring Boot microservices backend. The design is fully responsive and optimized for both desktop and mobile users.
 
+## 🖼 Screenshots
+
+### 🏠 Home Page
+
+![Home Screenshot](./public/screenshot.png)
+
+### 🗂 Category Page
+
+![Category Screenshot](./public/screenshot2.png)
+
 ## 🚀 Features
 
 - 🧭 **Routing with React Router**
@@ -22,3 +32,19 @@ This is the **React-based frontend** of the Getir Clone project. It replicates t
 
 ## 🛠️ Tech Stack
 - **Frontend**: React, Tailwind CSS, React Router DOM, Context API, Axios
+
+## 📦 Installation & Running
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/sirdashasan/getir-clone.git
+
+# 2. Navigate to the frontend directory
+cd getir-clone/frontend
+
+# 3. Install dependencies
+npm install
+
+# 4. Run the development server
+npm run dev
+```
