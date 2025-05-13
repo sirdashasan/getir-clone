@@ -1,12 +1,24 @@
-# React + Vite
+# 🛒 Getir Clone – Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the **React-based frontend** of the Getir Clone project. It replicates the UI/UX of the original Getir app and connects to a Spring Boot microservices backend. The design is fully responsive and optimized for both desktop and mobile users.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🧭 **Routing with React Router**
+  - Home page, category listing, and dynamic product detail pages
+- 📱 **Responsive UI**
+  - Tailwind CSS used to replicate Getir’s mobile-first layout
+- 🔍 **Category & Product System**
+  - Dynamic fetch of categories and subcategories
+  - Product filtering and display per category
+- 🧾 **Product Detail Page**
+  - Displays image, price, old price, ingredients, and additional info
+- 🌐 **Language Selection Popup**
+  - Multilingual support via manual toggle
+- 🛒 **Cart System** *(in progress)*  
+  - Add/remove items, quantity adjustments
+- 📦 **State Management with Context API**
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
+- **Frontend**: React, Tailwind CSS, React Router DOM, Context API, Axios

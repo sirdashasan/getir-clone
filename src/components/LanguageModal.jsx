@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { IoClose } from "react-icons/io5";
 import { useLanguage } from "../contexts/LanguageContext";
+import locales from "../locales/locales";
 
 const LanguageModal = ({ onClose }) => {
   const { language, toggleLanguage } = useLanguage();
@@ -22,7 +23,7 @@ const LanguageModal = ({ onClose }) => {
         </button>
 
         <h2 className="text-center text-[#5d3ebc] font-medium mb-4">
-          Dil Değiştir
+          {locales[language]["language-modal-title"]}
         </h2>
 
         <div className="space-y-3 text-gray-600">
@@ -78,7 +79,7 @@ const LanguageModal = ({ onClose }) => {
           : "bg-[#5d3ebc] text-white hover:bg-[#4a30a3]"
       }`}
         >
-          Güncelle
+          {locales[language]["language-modal-button"]}
         </button>
       </div>
     </div>

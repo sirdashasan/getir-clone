@@ -6,7 +6,7 @@ const locales = {
       getiryemek: "getiryemek",
       getirbuyuk: "getirbüyük",
       getirsu: "getirsu",
-      getircarsi: "getirçarşı",
+      getircarsi: "getirçarsı",
     },
     "language-text": "Türkçe (TR)",
     login: "Giriş yap",
@@ -84,6 +84,10 @@ const locales = {
         },
       },
       "information-society-services": "Bilgi Toplumu Hizmetleri",
+
+      // language modal
+      "language-modal-title": "Dili Değiştir",
+      "language-modal-button": "Güncelle",
 
 
   },
@@ -172,6 +176,10 @@ const locales = {
         },
       },
       "information-society-services": "Information Society Services",
+
+      // language modal
+      "language-modal-title": "Change Language",
+      "language-modal-button": "Update",
   },
 };
 
