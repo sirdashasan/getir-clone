@@ -40,7 +40,7 @@ This is the **React-based frontend** of the Getir Clone project. It replicates t
 git clone https://github.com/sirdashasan/getir-clone.git
 
 # 2. Navigate to the frontend directory
-cd getir-clone/frontend
+cd getir-clone
 
 # 3. Install dependencies
 npm install
