@@ -1,6 +1,9 @@
 # 🛒 Getir Clone – Frontend
 
-This is the **React-based frontend** of the Getir Clone project. It replicates the UI/UX of the original Getir app and connects to a [Spring Boot microservices backend](https://github.com/sirdashasan/getir-clone-backend). The design is fully responsive and optimized for both desktop and mobile users.
+This is the **React-based frontend** of the Getir Clone project. It replicates the UI/UX of the original Getir app and connects to a Spring Boot microservices backend. The design is fully responsive and optimized for both desktop and mobile users.
+
+👉 You can view the [Spring Boot–based backend of this project here](https://github.com/sirdashasan/getir-clone-backend).
+
 
 ## 🖼 Screenshots
 
